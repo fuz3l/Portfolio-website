@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="outputy.css">
+    <title>Modern Minimalist Portfolio</title>
+     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            margin-left: 30px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 4px 0;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            z-index: 1000;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero .cta-button {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .hero .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+
+
+        .about {
+        background-color: #f9f9f9;
+    }
+
+    .about h1 {
+        color: #333;
+    }
+
+    .about p {
+        color: #666;
+        line-height: 1.8;
+    }
+
+
+
+    .skills {
+        background-color: #ffffff;
+    }
+
+    .skills h1 {
+        color: #333;
+    }
+
+    .skill-card {
+        background-color: #f9f9f9;
+        transition: transform 0.3s ease;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .skill-card h2 {
+        color: #007bff;
+    }
+
+    .skill-card p {
+        color: #555;
+    }
+
+
+
+    .projects {
+        background-color: #f9f9f9;
+    }
+
+    .projects h1 {
+        color: #333;
+    }
+
+    .project-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-card h2 {
+        color: #007bff;
+    }
+
+    .project-card p {
+        color: #555;
+    }
+
+    .project-card img {
+        object-fit: cover;
+        width: 100%;
+        height: 250px;
+    }
+
+    .contact {
+        background-color: #ffffff;
+    }
+
+    .contact h1 {
+        color: #333;
+    }
+
+    .contact p {
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    form {
+        background-color: #f9f9f9;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    form label {
+        color: #333;
+    }
+
+    form input,
+    form textarea {
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        transition: border-color 0.3s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+        border-color: #007bff;
+    }
+
+    form button {
+        background-color: #007bff;
+        color: #ffffff;
+        transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+        background-color: #0056b3;
+    }
+
+        footer {
+            padding: 20px 40px;
+            text-align: center;
+            background-color: #ffffff;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+            color: #777;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .mobile-menu {
+                display: block;
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">My Portfolio</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Skills</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="mobile-menu " id="mobileMenu">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Skills</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Discover my work, skills, and projects in a clean and modern design that reflects my passion for simplicity and functionality.</p>
+        <a href="#" class="cta-button">Learn More</a>
+    </section>
+
+    <section class="about py-20 px-8">
+      <h1 class="text-4xl font-bold text-center mb-10">About Me</h1>
+      <p class="text-lg leading-relaxed max-w-3xl mx-auto text-center">I'm a passionate web developer with a keen eye for detail and a love for clean, modern design. With experience in a wide range of technologies, I create websites that are not only visually appealing but also highly functional and user-friendly.</p>
+  </section>
+
+  
+  <section class="skills py-20 px-8">
+    <h1 class="text-4xl font-bold text-center mb-10">My Skills</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-4xl mx-auto">
+        <div class="skill-card text-center p-8 bg-white shadow rounded">
+            <h2 class="text-2xl font-semibold mb-4">HTML & CSS</h2>
+            <p>Building responsive, accessible, and visually appealing web pages.</p>
+        </div>
+        <div class="skill-card text-center p-8 bg-white shadow rounded">
+            <h2 class="text-2xl font-semibold mb-4">JavaScript</h2>
+            <p>Creating dynamic and interactive user experiences.</p>
+        </div>
+        <div class="skill-card text-center p-8 bg-white shadow rounded">
+            <h2 class="text-2xl font-semibold mb-4">React</h2>
+            <p>Developing complex, high-performance web applications.</p>
+        </div>
+        <!-- Add more skill cards as needed -->
+    </div>
+</section>
+
+
+<section class="projects py-20 px-8">
+  <h1 class="text-4xl font-bold text-center mb-10">Projects</h1>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-4xl mx-auto">
+      <div class="project-card bg-white shadow rounded overflow-hidden">
+          <img src="project1-thumbnail.jpg" alt="Project 1" class="w-full h-48 object-cover">
+          <div class="p-8">
+              <h2 class="text-2xl font-semibold mb-4">Project 1</h2>
+              <p>A brief description of the project, highlighting key features and technologies used.</p>
+          </div>
+      </div>
+      <div class="project-card bg-white shadow rounded overflow-hidden">
+          <img src="project2-thumbnail.jpg" alt="Project 2" class="w-full h-48 object-cover">
+          <div class="p-8">
+              <h2 class="text-2xl font-semibold mb-4">Project 2</h2>
+              <p>A brief description of the project, highlighting key features and technologies used.</p>
+          </div>
+      </div>
+      <!-- Add more project cards as needed -->
+  </div>
+</section>
+
+<section class="contact py-20 px-8">
+  <h1 class="text-4xl font-bold text-center mb-10">Contact Me</h1>
+  <p class="text-lg leading-relaxed max-w-xl mx-auto text-center mb-8">Feel free to reach out to me for any inquiries or collaborations. I'm always open to discussing new projects and ideas.</p>
+  <form class="max-w-xl mx-auto">
+      <div class="mb-6">
+          <label for="name" class="block text-lg font-medium mb-2">Name</label>
+          <input type="text" id="name" class="w-full p-4 border border-gray-300 rounded" required>
+      </div>
+      <div class="mb-6">
+          <label for="email" class="block text-lg font-medium mb-2">Email</label>
+          <input type="email" id="email" class="w-full p-4 border border-gray-300 rounded" required>
+      </div>
+      <div class="mb-6">
+          <label for="message" class="block text-lg font-medium mb-2">Message</label>
+          <textarea id="message" class="w-full p-4 border border-gray-300 rounded" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded text-lg font-semibold">Send Message</button>
+  </form>
+</section>
+
+
+
+    <footer>
+        <p>&copy; 2024 My Portfolio. All Rights Reserved.</p>
+        <p>Connect with me: <a href="#">Twitter</a> | <a href="#">LinkedIn</a> | <a href="#">GitHub</a></p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("mobileMenu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

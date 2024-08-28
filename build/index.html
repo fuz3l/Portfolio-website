@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuzail Mansuri</title>
+   <link rel="stylesheet" href="output.css">
+   <style>
+        body {
+            background-color: #1a1a1a;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #terminal {
+    max-height: 80vh;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+#terminal::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+        .typing {
+            border-right: 2px solid #00ff00;
+            animation: blink 0.7s infinite step-end;
+        }
+
+        @keyframes blink {
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: #00ff00;
+            }
+        }
+
+        input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #00ff00;
+            font-family: inherit;
+            font-size: inherit;
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center h-screen">
+
+    <div class="w-full max-w-2xl p-4">
+        <div id="terminal" class="bg-black p-6 rounded-lg shadow-lg">
+            <div id="output"></div>
+            <div class="flex">
+                <span>$</span>
+                <input type="text" id="input" class="flex-grow pl-2" autofocus>
+                <span class="typing"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const sections = {
+            welcome: [
+                "Welcome to My Portfolio Website",
+                "Type 'help' to see available commands."
+            ],
+            about: [
+                "About Me",
+                "========",
+                "Hey I am Fuzail Mansuri a Web Developer with expertise in HTML, CSS, JavaScript, Firebase and Tailwind CSS.",
+                "I create modern, responsive web applications."
+            ],
+            projects: [
+                "Projects",
+                "========",
+                "1. Collaborative Note Taking WebApp - Note taking web app using firebse..",
+                "2. Agency Website - Modern, Minimalist Agency website.",
+                "3. Pinterest clone - Clone of pinterest with additonal features."
+            ],
+            contact: [
+                "Contact Me",
+                "==========",
+                "Email: fuzelxr@gmail.com",
+                "LinkedIn: https://www.linkedin.com/in/fuzail-mansuri-199a08264/",
+                "GitHub: https://github.com/fuz3l"
+            ],
+            help: [
+                "Available Commands:",
+                "'about' - Learn more about me.",
+                "'projects' - See my work.",
+                "'contact' - Get in touch.",
+                "'clear' - Clear the terminal.",
+                "'welcome' - Display the welcome message."
+            ]
+        };
+
+        const input = document.getElementById('input');
+        const output = document.getElementById('output');
+
+        function appendOutput(text) {
+            output.innerHTML += `<div>${text}</div>`;
+            document.getElementById('terminal').scrollTop = document.getElementById('terminal').scrollHeight;
+        }
+
+        function handleCommand(command) {
+            if (sections[command]) {
+                sections[command].forEach(line => appendOutput(line));
+            } else if (command === 'clear') {
+                output.innerHTML = '';
+            } else {
+                appendOutput(`Command not found: ${command}`);
+            }
+        }
+
+        input.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const command = input.value.trim().toLowerCase();
+                appendOutput(`$ ${command}`);
+                input.value = '';
+                handleCommand(command);
+            }
+        });
+
+        // Initialize with the welcome message
+        sections.welcome.forEach(line => appendOutput(line));
+    </script>
+
+</body>
+
+</html>
